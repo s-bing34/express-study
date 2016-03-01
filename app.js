@@ -69,24 +69,15 @@ app.use(function(req, res, next){
     }
     next();
 });
-app.get('/redisses',function(req,res,next){  
-    req.session.user = 'lizhengfu';  
-    req.session.sid = '123';  
-    res.send(req.session.user + '/' +req.session.sid);  
-})  
-  
-app.get('/checkses',function(req,res,next){  
-    console.log(req.session.user);  
-    res.send(req.session.user);  
-})  
-//// 加载路由控制
-//var routes = require('./routes/index');
-//var users = require('./routes/users');
-//var admin = require('./routes/admin');
-//// 匹配路径和路由
-//app.use('/', routes);
-//app.use('/users', users);
-//app.use('/admin', admin);
+
+// 加载路由控制
+var routes = require('./routes/index');
+var users = require('./routes/users');
+var admin = require('./routes/admin');
+// 匹配路径和路由
+app.use('/', routes);
+app.use('/users', users);
+app.use('/admin', admin);
 
 
 app.use(function (req, res, next) {
