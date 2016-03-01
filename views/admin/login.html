@@ -1,0 +1,35 @@
+<% include ../layout/header_admin.html %>
+<div id="login">
+	<h4>登录</h4>
+	<form class="form" onsubmit="return false;">
+		<input type="text" placeholder="请输入账号" name="name" />
+		<input type="text" placeholder="请输入密码" name="password" />
+		<button type="submit" onclick="login()">登录</button>
+	</form>
+	<p id="error"></p>
+</div>
+<script src="../js/jquery/jquery-2.1.0.js"></script>
+<script>
+	function login(){
+		$.ajax({
+			type: 'post',
+			url: 'login/account',
+			async:true,
+			data: {
+				name: $('input[name="name"]').val(),
+				password: $('input[name="password"]').val()
+			},
+			success: function(res){
+				if(!res.success){
+					$('#error').html(res.msg);
+					return;
+				}
+				window.location.href = '/admin';
+			},
+			error: function(res){
+				$('#error').html(res);
+			}
+		});
+	}
+</script>
+<% include ../layout/footer.html %>

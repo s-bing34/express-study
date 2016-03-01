@@ -1,0 +1,390 @@
+@charset "utf-8";
+/*======================
+ *初始化 
+ *=======================
+ */
+html{
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+canvas
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video,
+input,
+button,
+select,
+textarea {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    -ms-interpolation-mode: bicubic;//iE7.0中自带的-ms-interpolation-mode属性可以解决缩放失真问题
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);//苹果点击去掉半透明背景
+    -webkit-text-size-adjust: none;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+li {
+    list-style: none;
+}
+i,
+em {
+    font-style: normal;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+html{
+    position: relative;
+    height: 100%;
+    font-size: 12px;
+}
+
+body {
+    font-family: Microsoft YaHei, Helvetica, Arial, sans-serif;
+    color: #666;
+    background: #ffffff;
+    -webkit-text-size-adjust: none;
+    height: 100%;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: inherit;
+}
+input,
+textarea,
+select,
+button {
+    font-family: Microsoft YaHei, Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    color: #666;
+    border-radius: 0;
+}
+/*解决表单自动填充导致input文本框背景变成偏黄色问题*/
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: #666;
+}
+a:focus {
+    outline: 0;
+}
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+.hide {
+    display: none !important;
+}
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix {
+    *zoom: 1;
+}
+
+/* ====================================================
+ * 分页css
+ * start
+ * =============
+*/
+.js-page{
+    height: 20px;
+    li{
+        float: left;
+        color: #999;
+        .k{
+            cursor: pointer;    
+            border: 1px solid #e1e1e1;
+            margin-right: 5px;
+            width: 18px;
+            text-align: center;
+            line-height: 18px;
+            height: 18px;
+            &:hover{
+                border: 1px solid #ddd; 
+                background: #f8f8f8;
+                color: #787878;
+            }
+        }
+        &.unclick{
+            cursor: text;   
+            border: 1px solid #eee;
+            color: #ccc;
+            &:hover{
+                cursor: text;   
+                border: 1px solid #eee;
+                background: none;
+                color: #ccc;
+            }
+        }
+        &.page{
+            cursor: pointer;    
+            border: 1px solid #e1e1e1;
+            margin-right: 5px;
+            padding: 0 6px;
+            line-height: 18px;
+            &:hover{
+                border: 1px solid #ddd; 
+                background: #f8f8f8;
+                color: #787878;
+            }
+            &.current{
+                border: 1px solid #ddd; 
+                background: #ddd;
+                color: #fff;
+            }
+        }
+        &.jump{
+            float: left;    
+            margin-right: 5px;
+            span{
+                float: left;    
+                margin-right: 5px;
+            }
+            .pagenum{
+                float: left;    
+                width: 30px;
+                height: 18px;
+                text-align: center;
+                border: 1px solid #e1e1e1;
+                color: #999;
+            }
+        }
+        &.select{
+            select{
+                float: left;
+                color: #999;    
+                height: 20px;
+                border: 1px solid #e1e1e1;
+                background: #fff;
+            }
+        }
+    }
+}
+/* =============
+ * 分页css 
+ * end
+ * ====================================================
+*/
+
+
+
+
+/* ====================================================
+ * 弹出框插件css
+ * start
+ * =============
+*/
+.js-box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    overflow: hidden;
+    background: #f2f2f2;
+    border: 1px solid #eee;
+    .js-box-t{
+        overflow: hidden;
+        position: relative;
+        padding: 20px 24px 10px 24px;
+        h4{
+            text-align: center;
+        }
+        .js-box-t-close{
+            display: block;
+            position: absolute;
+            width: 11px;
+            height: 11px;
+            line-height: 0;
+            font-size: 0;
+            right: 10px;
+            top: 10px;
+            overflow: hidden;
+            text-indent: -9999px;
+            background: url(../images/icon/icon.png) no-repeat 0 0;
+        }
+    }
+    .js-box-c{
+        overflow: hidden;
+        margin: 10px;
+    }
+    .js-box-b{
+        overflow: hidden;
+        padding: 16px 10px;
+        text-align: center;
+        .js-box-b-ok{
+            display: inline-block;
+            padding: 8px 34px;
+            border-width: 1px;
+            border-style: solid;
+            background: #e01d20;
+            border-color: #e01d20;
+            margin-right: 10px;
+            color: #fff;
+            &:hover{
+                background: #e64a4d;
+            }
+        }
+        .js-box-b-cancel{
+            display: inline-block;
+            padding: 8px 34px;
+            border-width: 1px;
+            border-style: solid;
+            background: #e1e1e1;
+            border-color: #d1d1d1;
+            &:hover{
+                background: #fff;
+                border-color: #e1e1e1;
+            }
+        }
+    }
+}
+/* =============
+ * 弹出框插件css
+ * end
+ * ====================================================
+*/
+/* ====================================================
+ * 遮罩层css
+ * start
+ * =============
+*/
+.js-mask{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000;
+    opacity: 0.1;
+    filter: alpha(opacity=10);;
+}
+/* =============
+ * 遮罩层css
+ * end
+ * ====================================================
+*/
+/* ====================================================
+ * loading css
+ * start
+ * =============
+*/
+.js-loading{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -16px;
+    margin-top: -16px;
+    width: 32px;
+    height: 32px;
+    background: url(../images/icon/loading.gif) no-repeat center;
+}
+/* =============
+ * loading css
+ * end
+ * ====================================================
+*/

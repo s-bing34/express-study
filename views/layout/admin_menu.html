@@ -1,0 +1,13 @@
+<menu id="menu">
+	<ul>
+		<li <%if (curPage == 'index'){%>class="cur"<%}%> >
+			<a href="/admin">管理中心</a>
+		</li>
+		<li <%if (curPage == 'userList'){%>class="cur"<%}%> >
+			<a href="/admin/userList">管理员列表</a>
+		</li>
+		<li>
+			<a href="/admin/logout">退出</a>
+		</li>
+	</ul>
+</menu>

@@ -1,0 +1,100 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+#login{
+    width: 400px;
+    margin: 100px auto;
+    .form{
+        margin-top: 10px;
+        input{
+            display: block;
+            padding: 10px;
+            width: 200px;
+            margin-top: 10px;
+            padding: 5px 10px;
+            line-height: 20px;
+            border: 1px solid #ccc;
+        }
+        button{
+            margin-top: 10px;
+            display: block;
+            padding: 10px;
+            width: 200px;
+        }
+    }
+}
+#main{
+    position: relative;
+    background: #f4f4f4;
+    width: 100%;
+    overflow: hidden;
+}
+#menu{
+    position: relative;
+    float: left;
+    margin-left: -100%;
+    padding-bottom: 5000px;
+    margin-bottom: -5000px;
+    width: 200px;
+    background: #00B7FF;
+    ul{
+        li{
+            height: 40px;
+            line-height: 40px;
+            border-bottom: 1px solid #fff;
+            &:last-child{
+                border-bottom: 0;
+            }
+            &.cur{
+                background: #0A9DCD;
+            }
+            a{
+                display: block;
+                text-align: center;
+                color: #fff;
+            }
+        }
+    }
+}
+#content{
+    position: relative;
+    float: left;
+    width: 100%;
+    background: #fff;
+    padding-bottom: 5000px;
+    margin-bottom: -5000px;
+    .content{
+        margin-left: 200px;
+        padding: 20px;
+    }
+}
+#userList{
+    .list{
+        width: 100%;
+        td,
+        th{
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    }
+    .form{
+        margin-top: 10px;
+        display: none;
+        input{
+            display: block;
+            padding: 10px;
+            width: 200px;
+            margin-top: 10px;
+            padding: 5px 10px;
+            line-height: 20px;
+            border: 1px solid #ccc;
+        }
+        button{
+            margin-top: 10px;
+            display: block;
+            padding: 10px;
+            width: 200px;
+        }
+    }
+}

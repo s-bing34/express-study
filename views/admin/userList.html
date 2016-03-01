@@ -1,0 +1,77 @@
+<% include ../layout/header_admin.html %>
+<div id="main">
+	<div id="content">
+		<div class="content">
+			<div id="userList">
+				<table class="list">
+					<tr>
+						<th>ID</th>
+						<th>用户名</th>
+						<th>操作</th>
+					</tr>
+					<%for(var i=0; i<userList.length; i++){%>
+					<tr>
+						<td>
+							<%=i+1%>
+						</td>
+						<td>
+							<%=userList[i].name%>
+						</td>
+						<td>
+							<button onclick="changePassword(<%=userList[i].id%>, '<%=userList[i].name%>')">修改密码</button>
+						</td>
+					</tr>
+					<%}%>
+				</table>
+				<div class="form">
+					<form onsubmit="return false;">
+						<h4>修改<em></em>的密码</h4>
+						<input type="password" name="oldPassword" placeholder="旧密码" value="" />
+						<input type="password" name="newPassword" placeholder="新密码" value="" />
+						<input type="hidden" name="id" value="" />
+						<button type="submit" onclick="confirm()">提交</button>
+						<p class="tips"></p>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<% include ../layout/admin_menu.html %>
+</div>
+<script id="changePassword">
+	//修改用户密码
+	function changePassword(id, name){
+		$('.form').show();
+		$('.form h4 em').html(name);
+		$('.form input[name="id"]').val(id);
+	}
+	//提交密码
+	function confirm(){
+		var id = $('.form input[name="id"]').val(),
+			oldPassword = $('.form input[name="oldPassword"]').val(),
+			newPassword = $('.form input[name="newPassword"]').val();
+		if(id && oldPassword && oldPassword.length>=6 && newPassword && newPassword.length>=6){
+			$.ajax({
+				type: 'post',
+				url: 'userList/changePassword',
+				async: true,
+				data: {
+					id: id,
+					oldPassword: oldPassword,
+					newPassword: newPassword
+				},
+				success: function(res){
+					if(res.success){
+						$('.form .tips').html('修改成功');
+					}else{
+						$('.form .tips').html(res.msg);
+					}
+				}
+			});
+		}else{
+			$('.form .tips').html('密码必须不小于6个字符');
+		}
+	}
+</script>
+
+<% include ../layout/footer.html %>
